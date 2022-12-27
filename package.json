@@ -1,0 +1,51 @@
+{
+  "name": "bw-fullstck-reference-frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "local": "ng serve --proxy-config proxy.conf.local.json --port 4200",
+    "clean:api-sdk": "rimraf *.tgz ./sdk/bw-fullstack-reference-api-sdk",
+    "generate-core-api-sdk:local": "npm run clean:api-sdk && openapi-generator-cli generate -g typescript-angular -i http://localhost:8081/v3/api-docs -o ./sdk/bw-fullstack-reference-api-sdk --additional-properties npmName=bw-fullstack-reference-api-sdk,snapshot=true,ngVersion=9.0.1,fileNaming=kebab-case,npmVersion=1.0.0,useSingleRequestParameter=true --type-mappings=DateTime=string"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~14.2.4",
+    "@angular/common": "~14.2.4",
+    "@angular/compiler": "~14.2.4",
+    "@angular/core": "~14.2.4",
+    "@angular/forms": "^14.2.4",
+    "@angular/platform-browser": "~14.2.4",
+    "@angular/platform-browser-dynamic": "~14.2.4",
+    "@angular/router": "~14.2.4",
+    "@ng-bootstrap/ng-bootstrap": "^13.0.0",
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^4.6.2",
+    "keycloak-angular": "^8.4.0",
+    "keycloak-js": "^13.0.1",
+    "moment": "^2.29.4",
+    "ngx-bootstrap": "^7.1.2",
+    "ngx-toastr": "^14.3.0",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.4.0",
+    "zone.js": "^0.11.8"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.4",
+    "@angular/cli": "^14.2.4",
+    "@angular/compiler-cli": "^14.2.4",
+    "@openapitools/openapi-generator-cli": "^1.0.10-4.2.3",
+    "@types/jasmine": "~3.8.0",
+    "@types/node": "^12.20.55",
+    "jasmine-core": "~3.8.0",
+    "karma": "^6.4.0",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "^4.0.2",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "typescript": "~4.6.2"
+  }
+}
